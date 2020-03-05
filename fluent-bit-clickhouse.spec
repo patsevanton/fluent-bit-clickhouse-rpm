@@ -28,7 +28,6 @@ pwd
 find . -name clickhouse.so
 
 %install
-cd _build
 ls
 pwd
 install -d %{buildroot}/var/lib/fluent-bit/
