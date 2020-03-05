@@ -21,19 +21,11 @@ git clone https://github.com/iyacontrol/fluent-bit-clickhouse.git $GOPATH/src/gi
 cd $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 ls $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 go build -buildmode=c-shared -o clickhouse.so
-ls
-cp clickhouse.so ../../../../../../fluent-bit-clickhouse.so
+cp clickhouse.so ../../../../../../clickhouse.so
 
 %install
-install -d %{buildroot}%{_bindir}
-install -p -m 0755 fluent-bit-clickhouse %{buildroot}%{_bindir}/fluent-bit-clickhouse
-install -d %{buildroot}/etc/fluent-bit-clickhouse
-
-#%pre
-#/usr/bin/getent group fluent-bit-clickhouse > /dev/null || /usr/sbin/groupadd -r fluent-bit-clickhouse
-#/usr/bin/getent passwd fluent-bit-clickhouse > /dev/null || /usr/sbin/useradd -r -d /usr/lib/fluent-bit-clickhouse -s /bin/bash -g fluent-bit-clickhouse fluent-bit-clickhouse
+install -d %{buildroot}/var/lib/fluent-bit/
+install -p -m 0755 clickhouse.so %{buildroot}/var/lib/fluent-bit/clickhouse.so
 
 %files
-#%defattr(-,fluent-bit-clickhouse,fluent-bit-clickhouse,-)
-%{_bindir}/fluent-bit-clickhouse
-/etc/fluent-bit-clickhouse/config.yaml
+/var/lib/fluent-bit/clickhouse.so
