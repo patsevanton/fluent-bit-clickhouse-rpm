@@ -22,8 +22,13 @@ cd $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 ls $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 go build -buildmode=c-shared -o clickhouse.so
 cp clickhouse.so ../../../../../../clickhouse.so
+cd -
+ls
+pwd
 
 %install
+ls
+pwd
 install -d %{buildroot}/var/lib/fluent-bit/
 install -p -m 0755 clickhouse.so %{buildroot}/var/lib/fluent-bit/clickhouse.so
 
