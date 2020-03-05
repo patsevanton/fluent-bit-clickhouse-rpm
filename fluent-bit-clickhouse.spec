@@ -21,7 +21,7 @@ git clone https://github.com/iyacontrol/fluent-bit-clickhouse.git $GOPATH/src/gi
 cd $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 ls $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 go build -buildmode=c-shared -o clickhouse.so
-cp clickhouse.so ../../../../../../clickhouse.so
+cp clickhouse.so ../../../../../../../clickhouse.so
 cd -
 ls
 pwd
