@@ -20,8 +20,10 @@ mkdir -p $GOPATH/src/github.com/iyacontrol/
 git clone https://github.com/iyacontrol/fluent-bit-clickhouse.git $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 cd $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
 ls $GOPATH/src/github.com/iyacontrol/fluent-bit-clickhouse
-make build
+go build -buildmode=c-shared -o clickhouse.so
+ls
 cd build
+ls
 cp fluent-bit-clickhouse ../../../../../../fluent-bit-clickhouse
 
 %install
